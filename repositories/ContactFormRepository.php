@@ -2,35 +2,27 @@
 
 class ContactFormRepository
 {
-    private $db;
+    private $database;
 
     public function __construct()
     {
-        $this->db = new Database();
+        $this->database = new Database();
     }
 
-    public function save(ContactForm $contactForm)
+    public function create(array $formData)
     {
-        $conn = $this->db->connect();
-        $stmt = $conn->prepare('INSERT INTO contact_forms (name, email, subject, message) VALUES (:name, :email, :subject, :message)');
-        $stmt->bindParam(':name', $contactForm->getName());
-        $stmt->bindParam(':email', $contactForm->getEmail());
-        $stmt->bindParam(':subject', $contactForm->getSubject());
-        $stmt->bindParam(':message', $contactForm->getMessage());
+        // Prepare the SQL query
+        $query = "INSERT INTO contact_forms (name, email, message) VALUES (?, ?, ?)";
 
-        if ($stmt->execute()) {
-            return true;
-        }
+        // Prepare the statement
+        $stmt = $this->database->pdo->prepare($query);
 
-        return false;
-    }
+        // Bind the form data to the placeholders in the query
+        $stmt->bindValue(1, $formData['name'], PDO::PARAM_STR);
+        $stmt->bindValue(2, $formData['email'], PDO::PARAM_STR);
+        $stmt->bindValue(3, $formData['message'], PDO::PARAM_STR);
 
-    public function getAll()
-    {
-        $conn = $this->db->connect();
-        $stmt = $conn->prepare('SELECT * FROM contact_forms');
+        // Execute the statement
         $stmt->execute();
-
-        return $stmt->fetchAll();
     }
 }

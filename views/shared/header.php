@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/assets/css/output.css">
     <title>Hackers Poulette - Contact us!</title>
 </head>
-<body class="min-h-screen flex flex-col space-between">
+<body class="min-h-screen flex flex-col space-between items-center bg-slate-900 text-slate-50">
 <header class="w-full text-center text-2xl bg-slate-700 text-slate-100 h-16 shadow-2xl flex items-center justify-center">
     <div class="logo font-['Montserrat_Alternates']">Hackers Poulette</div>
 </header>

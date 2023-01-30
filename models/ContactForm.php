@@ -1,5 +1,5 @@
 <?php
-
+namespace 'App\models';
 class ContactForm
 {
     private $name;
