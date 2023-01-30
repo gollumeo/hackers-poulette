@@ -36,6 +36,6 @@ class ContactFormController
         }
 
         // render the contact form view
-        require __DIR__ . '/../views/contactform/create.php';
+        require __DIR__ . '/../views/contactform/success.php';
     }
 }
