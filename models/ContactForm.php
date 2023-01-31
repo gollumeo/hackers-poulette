@@ -1,5 +1,6 @@
 <?php
-namespace 'App\models';
+namespace App\Models;
+
 class ContactForm
 {
     private $name;
@@ -28,9 +29,9 @@ class ContactForm
         return $this->message;
     }
 
-    public function setUsername($username)
+    public function setName($name)
     {
-        $this->username = $username;
+        $this->name = $name;
     }
 
     public function setEmail($email)
@@ -48,4 +49,3 @@ class ContactForm
         $this->message = $message;
     }
 }
-

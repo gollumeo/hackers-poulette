@@ -14,7 +14,7 @@ $router->post('/contact-form', 'ContactFormController@store');
 
 $router->get('/success', function() {
     require_once __DIR__ . '/../views/shared/header.php';
-    require_once __DIR__ . '/views/success.php';
+    require_once __DIR__ . '/../views/contactform/success.php';
     require_once __DIR__ . '/../views/shared/footer.php';
 });
 

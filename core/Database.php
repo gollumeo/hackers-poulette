@@ -2,43 +2,27 @@
 
 class Database
 {
-    private $pdo;
+    private $hostname;
+    private $dbname;
+    private $username;
+    private $password;
 
     public function __construct()
     {
-        include_once 'config/database.php';
+        $config = require_once('config/config.php');
 
-        $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
+        $this->hostname = $config['hostname'];
+        $this->dbname = $config['dbname'];
+        $this->username = $config['username'];
+        $this->password = $config['password'];
+    }
 
+    public function connect()
+    {
         try {
-            $this->pdo = new PDO($dsn, DB_USER, DB_PASS);
+            return new PDO("mysql:host=$this->hostname;dbname=$this->dbname", $this->username, $this->password);
         } catch (PDOException $e) {
-            echo 'Connection failed: ' . $e->getMessage();
+            echo $e->getMessage();
         }
-    }
-
-    public function select($query, $data = [])
-    {
-        $stmt = $this->pdo->prepare($query);
-        $stmt->execute($data);
-        return $stmt->fetchAll();
-    }
-
-    public function insert($query, $data = [])
-    {
-        $stmt = $this->pdo->prepare($query);
-        return $stmt->execute($data);
-    }
-
-    public function update($query, $data = [])
-    {
-        $stmt = $this->pdo->prepare($query);
-        return $stmt->execute($data);
-    }
-
-    public function delete($query, $data = [])
-    {
-        $stmt = $this->pdo->prepare($query);
-        return $stmt->execute($data);
     }
 }
