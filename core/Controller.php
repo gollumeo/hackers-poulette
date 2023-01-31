@@ -1,29 +1,12 @@
 <?php
-namespace App\Core;
 
-use App\Models\ContactForm;
+namespace App\Core;
 
 class Controller
 {
-    protected $model;
-
-    public function __construct(ContactForm $model)
+    public function viewHome($view)
     {
-        $this->model = $model;
-    }
-
-    public function submit()
-    {
-        // Perform actions on the model
-        // For example, insert the data into a database
-        $name = $this->model->getName();
-        $email = $this->model->getEmail();
-        $message = $this->model->getMessage();
-
-        // Insert data into database
-        // ...
-
-        // Return success message
-        return "Contact form submitted successfully!";
+//        extract($data);
+        require_once(__ROOT__ . '/views/contactform/' . $view . '.php');
     }
 }

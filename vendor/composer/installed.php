@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'becode/hackers',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4cc193a989512d9be456909c301cdef9bd0f5c76',
+        'reference' => '243881078746602172b5529ceabba480191ef6ad',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
+        'becode/hackers' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4cc193a989512d9be456909c301cdef9bd0f5c76',
+            'reference' => '243881078746602172b5529ceabba480191ef6ad',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

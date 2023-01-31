@@ -2,40 +2,34 @@
 
 namespace App\Controllers;
 
+use App\Core\Controller;
 use App\Models\ContactForm;
-use App\Services\ContactFormService;
+use App\services\ContactFormService;
 
-class ContactFormController
+class ContactFormController extends Controller
 {
     protected $contactFormService;
 
-    public function __construct(ContactFormService $contactFormService)
+    public function __construct()
     {
-        $this->contactFormService = $contactFormService;
+        echo "coucou";
+        $this->contactFormService = new ContactFormService;
     }
 
     public function create()
     {
+        echo "coucou";
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = [
-                'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'subject' => $_POST['subject'],
-                'message' => $_POST['message']
-            ];
 
-            $contactForm = new ContactForm($data);
+            $contactForm = new ContactForm($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message']);
 
             if ($this->contactFormService->validate($contactForm)) {
                 $this->contactFormService->store($contactForm);
 
                 // redirect to a success page
-                header('Location: /success');
-                exit();
+                return $this->viewHome('success');
             }
         }
-
-        // render the contact form view
-        require __DIR__ . '/../views/contactform/success.php';
+        return false;
     }
 }
