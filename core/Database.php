@@ -4,7 +4,11 @@ namespace App\core;
 
 use PDO;
 use PDOException;
-use App\config\Config as CONFIG;
+//use App\config\Config as CONFIG;
+use Dotenv;
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 class Database
 {
@@ -19,10 +23,10 @@ class Database
     public function __construct()
     {
 
-        $this->hostname = CONFIG::DB_HOST;
-        $this->dbname = CONFIG::DB_NAME;
-        $this->username = CONFIG::DB_USER;
-        $this->password = CONFIG::DB_PASS;
+        $this->hostname = $_ENV['DB_HOST'];
+        $this->dbname = $_ENV['DB_NAME'];
+        $this->username = $_ENV['DB_USER'];
+        $this->password = $_ENV['DB_PASS'];
 
         try {
             return $this->conn = new PDO("mysql:host=$this->hostname;dbname=$this->dbname", $this->username, $this->password);

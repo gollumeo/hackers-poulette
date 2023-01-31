@@ -12,13 +12,11 @@ class ContactFormController extends Controller
 
     public function __construct()
     {
-        echo "coucou";
         $this->contactFormService = new ContactFormService;
     }
 
     public function create()
     {
-        echo "coucou";
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $contactForm = new ContactForm($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message']);
