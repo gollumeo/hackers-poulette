@@ -1,44 +1,4 @@
-# hackers-poulette
+# Hackers Poulette
 
-HackersPoulette/
-    config/
-        config.php
-        database.php
-    controllers/
-        ContactFormController.php
-    core/
-        Controller.php
-        Database.php
-        Helper.php
-    public/
-        assets/
-            css/
-            js/
-            img/
-        .htaccess
-        index.php
-    routes/
-        web.php
-        api.php
-    views/
-        contactform/
-            create.php
-            edit.php
-            index.php
-            show.php
-        shared/
-            header.php
-            footer.php
-            home.php
-    models/
-        ContactForm.php
-    repositories/
-        ContactFormRepository.php
-    services/
-        ContactFormService.php
-    .htaccess
-    index.php
-    setup.php
-    composer.json
-    composer.lock
-    README.md
+This supposedly was an exercise to send mails using PHP, while I was training at BeCode. <br>
+For some reasons, I decided to improve my OOP knowledges and built this using the MVC pattern, and kinda forgot the mailer, which is still to be added (obviously).
